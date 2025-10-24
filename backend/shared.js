@@ -71,13 +71,7 @@ app.post("/login", function (req, res) {
                 req.session.userId = user.id;
                 req.session.role = userRoleStr;
 
-                const payload = {
-                    role: userRoleStr,
-                    userId: user.id,
-                    username: user.username,
-                };
-
-                return res.status(200).json(payload);
+                return res.status(200).json({ role: userRoleStr });
             } else {
                 return res.status(401).send("Wrong password");
             }

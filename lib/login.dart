@@ -19,7 +19,6 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   String? _role;
-  int? _userId;
 
   @override
   void dispose() {
@@ -49,9 +48,6 @@ class _LoginPageState extends State<LoginPage> {
 
         setState(() {
           _role = data['role'] as String?;
-          _userId = data['userId'] is int
-              ? data['userId'] as int
-              : int.tryParse('${data['userId']}');
         });
 
         Widget? destination;

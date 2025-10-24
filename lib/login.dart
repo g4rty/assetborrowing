@@ -4,6 +4,7 @@ import 'package:assetborrowing/lecturer/lecturer_home_page.dart';
 import 'package:assetborrowing/register.dart';
 import 'package:assetborrowing/staff/staff_home_page.dart';
 import 'package:assetborrowing/student/student_home_page.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:awesome_dialog/awesome_dialog.dart';
@@ -38,7 +39,7 @@ class _LoginPageState extends State<LoginPage> {
 
     try {
       final response = await http.post(
-        Uri.parse('http://localhost:3000/login'),
+        Uri.parse('${_backendBaseUrl()}/login'),
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode({'username': username, 'password': password}),
       );
@@ -104,6 +105,14 @@ class _LoginPageState extends State<LoginPage> {
     } catch (e) {
       _showErrorDialog('Login error: $e');
     }
+  }
+
+  String _backendBaseUrl() {
+    // Android emulators need to hit the host machine through 10.0.2.2.
+    if (!kIsWeb && defaultTargetPlatform == TargetPlatform.android) {
+      return 'http://10.0.2.2:3000';
+    }
+    return 'http://localhost:3000';
   }
 
   void _showErrorDialog(String message) {

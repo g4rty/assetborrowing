@@ -1,0 +1,22 @@
+PODS:
+  - FlutterMacOS (1.0.0)
+  - rive_native (0.0.1):
+    - FlutterMacOS
+
+DEPENDENCIES:
+  - FlutterMacOS (from `Flutter/ephemeral`)
+  - rive_native (from `Flutter/ephemeral/.symlinks/plugins/rive_native/macos`)
+
+EXTERNAL SOURCES:
+  FlutterMacOS:
+    :path: Flutter/ephemeral
+  rive_native:
+    :path: Flutter/ephemeral/.symlinks/plugins/rive_native/macos
+
+SPEC CHECKSUMS:
+  FlutterMacOS: 8f6f14fa908a6fb3fba0cd85dbd81ec4b251fb24
+  rive_native: 8a1f7b191cd1cfb55301e8d5028880e4ae788d56
+
+PODFILE CHECKSUM: 7eb978b976557c8c1cd717d8185ec483fd090a82
+
+COCOAPODS: 1.16.2

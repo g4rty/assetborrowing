@@ -40,7 +40,7 @@ class _LoginPageState extends State<LoginPage> {
 
     try {
       final response = await http.post(
-        Uri.parse('${ApiConfig.resolveBaseUrl()}/login'),
+        Uri.parse('${ApiConfig.apihost()}/login'),
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode({'username': username, 'password': password}),
       );

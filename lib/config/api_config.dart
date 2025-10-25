@@ -13,7 +13,7 @@ class ApiConfig {
   // static const String lanBaseUrl = 'http://192.168.1.50:3000';
 
   // Helper that returns the right URL by platform; default falls back to Android emulator value.
-  static String resolveBaseUrl() {
+  static String apihost() {
     // if (const bool.fromEnvironment('USE_LAN_URL')) {
     //   return lanBaseUrl;
     // }

@@ -1,12 +1,14 @@
 import 'dart:convert';
 
-import 'package:assetborrowing/lecturer/lecturer_home_page.dart';
-import 'package:assetborrowing/register.dart';
-import 'package:assetborrowing/staff/staff_home_page.dart';
-import 'package:assetborrowing/student/student_home_page.dart';
+import '/lecturer/lecturer_home_page.dart';
+import '/register.dart';
+import '/staff/staff_home_page.dart';
+import '/student/student_home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:awesome_dialog/awesome_dialog.dart';
+
+import 'config/api_config.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -38,7 +40,7 @@ class _LoginPageState extends State<LoginPage> {
 
     try {
       final response = await http.post(
-        Uri.parse('http://localhost:3000/login'),
+        Uri.parse('${ApiConfig.resolveBaseUrl()}/login'),
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode({'username': username, 'password': password}),
       );

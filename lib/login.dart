@@ -39,8 +39,9 @@ class _LoginPageState extends State<LoginPage> {
     }
 
     try {
+      final baseUrl = await ApiConfig.getLocalIp();
       final response = await http.post(
-        Uri.parse('${ApiConfig.apihost()}/login'),
+        Uri.parse('$baseUrl/login'),
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode({'username': username, 'password': password}),
       );
